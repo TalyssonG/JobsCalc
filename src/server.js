@@ -1,14 +1,12 @@
 const express = require("express")
 const server = express()
+const routes = require("./routes")
 
 //Habilitar arquivos statics 
 server.use(express.static("public"))
 
-//request, response 
-server.get('/', (request, response) => {
-  return response.sendFile(__dirname + "/views/index.html") //Mostrando o Html na página
-})
-
+//routes
+server.use(routes)
 
 
 server.listen(3000, () => console.log('rodando')) //Criando a porta do servidor com listen
